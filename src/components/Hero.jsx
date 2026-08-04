@@ -1,7 +1,7 @@
 import './Hero.css';
 
 const STATS = [
-  { value: '12 лет', label: 'опыта работы' },
+  { value: '20+ лет', label: 'опыта работы' },
   { value: '500+', label: 'учеников' },
   { value: '98%', label: 'довольных родителей' },
 ];

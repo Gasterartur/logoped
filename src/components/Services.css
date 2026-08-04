@@ -5,16 +5,34 @@
 }
 
 .services__card {
+  display: block;
   background: var(--color-white);
   border-radius: var(--radius-md);
   padding: 32px 28px;
   box-shadow: var(--shadow-soft);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  border: 2px solid transparent;
 }
 
 .services__card:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 36px rgba(46, 58, 70, 0.12);
+}
+
+.services__card--linked {
+  cursor: pointer;
+}
+
+.services__card--linked:hover {
+  border-color: var(--color-primary);
+}
+
+.services__hint {
+  display: block;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
 }
 
 .services__icon {

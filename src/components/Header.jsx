@@ -1,12 +1,13 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const NAV_LINKS = [
-  { href: '#about', label: 'Обо мне' },
-  { href: '#services', label: 'Услуги' },
-  { href: '#prices', label: 'Цены' },
-  { href: '#reviews', label: 'Отзывы' },
-  { href: '#contacts', label: 'Контакты' },
+  { href: '/#about', label: 'Обо мне' },
+  { href: '/#services', label: 'Услуги' },
+  { href: '/#prices', label: 'Цены' },
+  { href: '/#reviews', label: 'Отзывы' },
+  { href: '/#contacts', label: 'Контакты' },
 ];
 
 function Header() {
@@ -17,24 +18,24 @@ function Header() {
   return (
     <header className="header">
       <div className="container header__inner">
-        <a href="#home" className="header__logo" onClick={closeMenu}>
-          <img className="header__logo-photo" src="/image/karimova1.jpg" alt="Светлана Каримова" />
+        <Link to="/" className="header__logo" onClick={closeMenu}>
+          <img className="header__logo-photo" src="/image/karimova1.png" alt="Светлана Каримова" />
           <span>
             Светлана Каримова
             <small>логопед-дефектолог</small>
           </span>
-        </a>
+        </Link>
 
         <nav className={`header__nav ${isMenuOpen ? 'header__nav--open' : ''}`}>
           <ul>
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a href={link.href} onClick={closeMenu}>{link.label}</a>
+                <Link to={link.href} onClick={closeMenu}>{link.label}</Link>
               </li>
             ))}
           </ul>
           <a href="tel:+79991234567" className="header__phone">+7 (999) 123-45-67</a>
-          <a href="#contacts" className="btn btn-primary" onClick={closeMenu}>Записаться</a>
+          <Link to="/#contacts" className="btn btn-primary" onClick={closeMenu}>Записаться</Link>
         </nav>
 
         <button

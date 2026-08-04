@@ -1,12 +1,21 @@
+.contacts {
+  scroll-margin-top: 88px;
+  padding-top: 40px;
+}
+
+.contacts .section-header {
+  margin-bottom: 28px;
+}
+
 .contacts__grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 48px;
+  gap: 40px;
 }
 
 .contacts__info {
   display: grid;
-  gap: 28px;
+  gap: 18px;
   align-content: start;
 }
 
@@ -45,10 +54,10 @@
 
 .contacts__form {
   display: grid;
-  gap: 18px;
+  gap: 14px;
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  padding: 36px;
+  padding: 28px;
   box-shadow: var(--shadow-soft);
 }
 
@@ -85,13 +94,8 @@
   text-align: center;
 }
 
-.contacts__right {
-  display: grid;
-  gap: 20px;
-}
-
 .contacts__map {
-  height: 220px;
+  height: 180px;
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-soft);

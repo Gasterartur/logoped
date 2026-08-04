@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
 import './Services.css';
 
@@ -6,11 +7,13 @@ const SERVICES = [
     icon: '🔍',
     title: 'Диагностика речи',
     text: 'Полное обследование речевого развития ребёнка, выявление причин трудностей и разработка плана коррекции.',
+    link: '/diagnostika-rechi',
   },
   {
     icon: '👄',
     title: 'Постановка звуков',
     text: 'Коррекция звукопроизношения: постановка, автоматизация и введение звуков в самостоятельную речь.',
+    link: '/postanovka-zvukov',
   },
   {
     icon: '💬',
@@ -57,14 +60,18 @@ function Services() {
           {SERVICES.map((service, index) => (
             <Reveal
               key={service.title}
-              as="article"
-              className="services__card"
+              as={service.link ? Link : 'article'}
+              to={service.link}
+              className={`services__card ${service.link ? 'services__card--linked' : ''}`}
               direction={getDirection(index)}
               delay={(index % 3) * 100}
             >
               <div className="services__icon" aria-hidden="true">{service.icon}</div>
               <h3>{service.title}</h3>
               <p>{service.text}</p>
+              {service.link && (
+                <span className="services__hint">Нажмите для подробной информации →</span>
+              )}
             </Reveal>
           ))}
         </div>

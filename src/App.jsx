@@ -1,25 +1,24 @@
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Advantages from './components/Advantages';
-import Prices from './components/Prices';
-import Reviews from './components/Reviews';
-import Contacts from './components/Contacts';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import Home from './pages/Home';
+import PricingPage from './pages/PricingPage';
+import DiagnostikaRechi from './pages/DiagnostikaRechi';
+import PostanovkaZvukov from './pages/PostanovkaZvukov';
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <main>
-        <Hero />
-        <About />
-        <Services />
-        <Advantages />
-        <Prices />
-        <Reviews />
-        <Contacts />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/uslugi-i-ceny" element={<PricingPage />} />
+          <Route path="/diagnostika-rechi" element={<DiagnostikaRechi />} />
+          <Route path="/postanovka-zvukov" element={<PostanovkaZvukov />} />
+        </Routes>
       </main>
       <Footer />
     </>

@@ -1,11 +1,13 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const NAV_LINKS = [
-  { href: '#about', label: 'Обо мне' },
-  { href: '#services', label: 'Услуги' },
-  { href: '#prices', label: 'Цены' },
-  { href: '#reviews', label: 'Отзывы' },
-  { href: '#contacts', label: 'Контакты' },
+  { href: '/#about', label: 'Обо мне' },
+  { href: '/#services', label: 'Услуги' },
+  { href: '/#prices', label: 'Цены' },
+  { href: '/#reviews', label: 'Отзывы' },
+  { href: '/#contacts', label: 'Контакты' },
+  { href: '/uslugi-i-ceny', label: 'Полный прайс-лист' },
 ];
 
 const SOCIALS = [
@@ -28,7 +30,7 @@ function Footer() {
         <nav className="footer__nav">
           <ul>
             {NAV_LINKS.map((link) => (
-              <li key={link.href}><a href={link.href}>{link.label}</a></li>
+              <li key={link.href}><Link to={link.href}>{link.label}</Link></li>
             ))}
           </ul>
         </nav>

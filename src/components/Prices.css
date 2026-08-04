@@ -1,6 +1,6 @@
 .prices__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   align-items: stretch;
 }
@@ -64,7 +64,7 @@
 
 .prices__price {
   font-family: var(--font-heading);
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--color-primary-dark);
 }
@@ -90,7 +90,23 @@
   border-bottom: 1px dashed rgba(46, 58, 70, 0.12);
 }
 
-@media (max-width: 1024px) {
+.prices__more {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.prices__more-link {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-primary-dark);
+  transition: color 0.2s ease;
+}
+
+.prices__more-link:hover {
+  color: var(--color-secondary-dark);
+}
+
+@media (max-width: 900px) {
   .prices__grid {
     grid-template-columns: repeat(2, 1fr);
   }

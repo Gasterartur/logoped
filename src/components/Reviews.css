@@ -1,0 +1,38 @@
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.reviews__card {
+  margin: 0;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: var(--shadow-soft);
+}
+
+.reviews__stars {
+  color: #ffb84d;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.reviews__text {
+  font-size: 15px;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.reviews__author {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-dark);
+}
+
+@media (max-width: 900px) {
+  .reviews__grid {
+    grid-template-columns: 1fr;
+  }
+}

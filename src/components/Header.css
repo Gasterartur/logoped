@@ -1,0 +1,137 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 251, 245, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(46, 58, 70, 0.08);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-dark);
+}
+
+.header__logo-photo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px var(--color-white), 0 0 0 3px rgba(82, 183, 136, 0.5);
+}
+
+.header__logo small {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.header__nav ul {
+  display: flex;
+  gap: 22px;
+}
+
+.header__nav a {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-text);
+  transition: color 0.2s ease;
+}
+
+.header__nav ul a:hover {
+  color: var(--color-primary-dark);
+}
+
+.header__phone {
+  font-weight: 700;
+  color: var(--color-dark);
+  white-space: nowrap;
+}
+
+.header__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  padding: 0;
+}
+
+.header__burger span {
+  display: block;
+  height: 2px;
+  background: var(--color-dark);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+@media (max-width: 900px) {
+  .header__burger {
+    display: flex;
+  }
+
+  .header__nav {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding: 24px;
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .header__nav--open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .header__nav ul {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .header__phone {
+    text-align: center;
+  }
+
+  .header__burger--open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .header__burger--open span:nth-child(2) {
+    opacity: 0;
+  }
+  .header__burger--open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}

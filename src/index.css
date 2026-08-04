@@ -170,9 +170,25 @@ img {
   will-change: opacity, transform;
 }
 
+.reveal--from-top {
+  transform: translateY(-64px);
+}
+
+.reveal--from-bottom {
+  transform: translateY(64px);
+}
+
+.reveal--from-left {
+  transform: translateX(-64px);
+}
+
+.reveal--from-right {
+  transform: translateX(64px);
+}
+
 .reveal--visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {

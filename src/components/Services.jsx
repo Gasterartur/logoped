@@ -34,6 +34,15 @@ const SERVICES = [
   },
 ];
 
+// Cards sit in a 3-column x 2-row grid: side columns fly in from their
+// nearest edge, the middle column falls back to top (row 1) / bottom (row 2).
+function getDirection(index) {
+  const column = index % 3;
+  if (column === 0) return 'left';
+  if (column === 2) return 'right';
+  return index < 3 ? 'top' : 'bottom';
+}
+
 function Services() {
   return (
     <section id="services" className="section section-alt services">
@@ -50,6 +59,7 @@ function Services() {
               key={service.title}
               as="article"
               className="services__card"
+              direction={getDirection(index)}
               delay={(index % 3) * 100}
             >
               <div className="services__icon" aria-hidden="true">{service.icon}</div>

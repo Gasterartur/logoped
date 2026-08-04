@@ -15,7 +15,7 @@ export function useReveal(threshold = 0.3) {
           observer.unobserve(node);
         }
       },
-      { threshold }
+      { threshold, rootMargin: '0px 0px -20% 0px' }
     );
 
     observer.observe(node);

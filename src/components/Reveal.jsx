@@ -1,12 +1,15 @@
 import { useReveal } from '../hooks/useReveal';
 
-function Reveal({ children, className = '', as: Tag = 'div', delay = 0, ...rest }) {
-  const [ref, isVisible] = useReveal(0.3);
+function Reveal({ children, className = '', as: Tag = 'div', delay = 0, direction, ...rest }) {
+  const [ref, isVisible] = useReveal(0.45);
+  const directionClass = direction ? `reveal--from-${direction}` : '';
 
   return (
     <Tag
       ref={ref}
-      className={`reveal ${isVisible ? 'reveal--visible' : ''} ${className}`.trim()}
+      className={`reveal ${directionClass} ${isVisible ? 'reveal--visible' : ''} ${className}`
+        .replace(/\s+/g, ' ')
+        .trim()}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
       {...rest}
     >

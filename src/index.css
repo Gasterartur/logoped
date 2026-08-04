@@ -139,12 +139,15 @@ img {
   background: var(--color-white);
   color: var(--color-dark);
   border: 2px solid var(--color-dark);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background: var(--color-dark);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   color: var(--color-white);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(82, 183, 136, 0.35);
 }
 
 .btn-block {

@@ -7,12 +7,14 @@ const PLANS = [
     price: '1 500 ₽',
     duration: '60 минут',
     features: ['Обследование речи', 'Беседа с родителями', 'План коррекции'],
+    badge: 'Первый шаг',
   },
   {
     title: 'Индивидуальное занятие',
     price: '1 200 ₽',
     duration: '45 минут',
     features: ['Очно в кабинете', 'Игровые упражнения', 'Рекомендации на дом'],
+    badge: 'Популярно',
     highlighted: true,
   },
   {
@@ -20,12 +22,14 @@ const PLANS = [
     price: '8 800 ₽',
     duration: 'экономия 1 800 ₽',
     features: ['Действует 2 месяца', 'Гибкое расписание', 'Отчёт о прогрессе'],
+    badge: 'Экономно',
   },
   {
     title: 'Онлайн-занятие',
     price: '1 000 ₽',
     duration: '45 минут',
     features: ['По видеосвязи', 'Из любого города', 'Материалы после занятия'],
+    badge: 'Мобильно',
   },
 ];
 
@@ -46,7 +50,7 @@ function Prices() {
               className={`prices__card ${plan.highlighted ? 'prices__card--highlighted' : ''}`}
               delay={(index % 4) * 100}
             >
-              {plan.highlighted && <span className="prices__badge">Популярно</span>}
+              {plan.badge && <span className="prices__badge">{plan.badge}</span>}
               <h3>{plan.title}</h3>
               <div className="prices__price">{plan.price}</div>
               <div className="prices__duration">{plan.duration}</div>
@@ -55,7 +59,7 @@ function Prices() {
                   <li key={feature}>{feature}</li>
                 ))}
               </ul>
-              <a href="#contacts" className={`btn btn-block ${plan.highlighted ? 'btn-primary' : 'btn-secondary'}`}>
+              <a href="#contacts" className="btn btn-block btn-secondary">
                 Записаться
               </a>
             </Reveal>

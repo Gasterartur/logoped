@@ -85,6 +85,23 @@
   text-align: center;
 }
 
+.contacts__right {
+  display: grid;
+  gap: 20px;
+}
+
+.contacts__map {
+  height: 220px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.contacts__map iframe {
+  display: block;
+  border: 0;
+}
+
 @media (max-width: 900px) {
   .contacts__grid {
     grid-template-columns: 1fr;
@@ -92,5 +109,9 @@
 
   .contacts__form {
     padding: 24px;
+  }
+
+  .contacts__map {
+    height: 260px;
   }
 }

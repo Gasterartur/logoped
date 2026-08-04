@@ -34,9 +34,10 @@ function Contacts() {
               <span className="contacts__icon" aria-hidden="true">📍</span>
               <div>
                 <h3>Адрес</h3>
-                <p>г. Самара, ул. Примерная, д. 12, кабинет 5</p>
+                <p>ул. Георгия Димитрова, 4, 443114, г. Самара</p>
               </div>
             </div>
+
             <div className="contacts__item">
               <span className="contacts__icon" aria-hidden="true">📞</span>
               <div>
@@ -57,6 +58,18 @@ function Contacts() {
                 <h3>Часы работы</h3>
                 <p>Пн–Сб: 9:00–20:00</p>
               </div>
+            </div>
+
+            <div className="contacts__map">
+              <iframe
+                title="Карта проезда"
+                src="https://yandex.ru/map-widget/v1/?ll=50.2399%2C53.2481&z=17&l=map&pt=50.2399,53.2481,pm2rdm"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                loading="lazy"
+                allowFullScreen
+              />
             </div>
           </Reveal>
 

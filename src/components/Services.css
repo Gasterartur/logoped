@@ -1,60 +1,75 @@
 .services__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .services__card {
+  position: relative;
   display: block;
-  background: var(--color-white);
+  min-height: 306px;
+  overflow: hidden;
   border-radius: var(--radius-md);
-  padding: 32px 28px;
   box-shadow: var(--shadow-soft);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .services__card:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 36px rgba(46, 58, 70, 0.12);
-}
-
-.services__card--linked {
-  cursor: pointer;
-}
-
-.services__card--linked:hover {
   border-color: var(--color-primary);
+}
+
+.services__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.services__card:hover .services__bg {
+  transform: scale(1.06);
+}
+
+.services__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 26, 32, 0) 0%, rgba(20, 26, 32, 0.35) 45%, rgba(20, 26, 32, 0.9) 100%);
+}
+
+.services__body {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.services__card h3 {
+  font-size: 17px;
+  color: var(--color-white);
+  margin-bottom: 7px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.services__card p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 .services__hint {
   display: block;
-  margin-top: 14px;
-  font-size: 13px;
+  margin-top: 12px;
+  font-size: 12px;
   font-weight: 700;
-  color: var(--color-primary-dark);
-}
-
-.services__icon {
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  border-radius: var(--radius-sm);
-  background: var(--color-bg-alt);
-  margin-bottom: 18px;
-}
-
-.services__card h3 {
-  font-size: 19px;
-  margin-bottom: 10px;
-}
-
-.services__card p {
-  color: var(--color-muted);
-  font-size: 15px;
+  color: var(--color-white);
 }
 
 @media (max-width: 900px) {
@@ -66,5 +81,9 @@
 @media (max-width: 600px) {
   .services__grid {
     grid-template-columns: 1fr;
+  }
+
+  .services__card {
+    min-height: 255px;
   }
 }

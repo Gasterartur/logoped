@@ -34,7 +34,7 @@ function Contacts() {
               <span className="contacts__icon" aria-hidden="true">📍</span>
               <div>
                 <h3>Адрес</h3>
-                <p>ул. Георгия Димитрова, 4, 443114, г. Самара</p>
+                <p>ул. Петра Алабина, 2, 443032, г. Самара</p>
               </div>
             </div>
 
@@ -42,14 +42,14 @@ function Contacts() {
               <span className="contacts__icon" aria-hidden="true">📞</span>
               <div>
                 <h3>Телефон</h3>
-                <p><a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+                <p><a href="tel:+79171489510">+7 (917) 148-95-10</a></p>
               </div>
             </div>
             <div className="contacts__item">
-              <span className="contacts__icon" aria-hidden="true">✉️</span>
+              <span className="contacts__icon" aria-hidden="true">💬</span>
               <div>
-                <h3>Email</h3>
-                <p><a href="mailto:info@logoped-karimova.ru">info@logoped-karimova.ru</a></p>
+                <h3>ВКонтакте</h3>
+                <p><a href="https://vk.com/logoped_teams_online" target="_blank" rel="noreferrer">@logoped_teams_online</a></p>
               </div>
             </div>
             <div className="contacts__item">
@@ -63,7 +63,7 @@ function Contacts() {
             <div className="contacts__map">
               <iframe
                 title="Карта проезда"
-                src="https://yandex.ru/map-widget/v1/?ll=50.2399%2C53.2481&z=17&l=map&pt=50.2399,53.2481,pm2rdm"
+                src="https://yandex.ru/map-widget/v1/?ll=50.073768%2C53.144759&z=17&l=map&pt=50.073768,53.144759,pm2rdm"
                 width="100%"
                 height="100%"
                 frameBorder="0"

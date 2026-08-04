@@ -1,0 +1,104 @@
+.zaikolog-page {
+  padding-top: 56px;
+}
+
+.zaikolog-page__header {
+  max-width: 720px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.zaikolog-page__topline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.zaikolog-page__topline .eyebrow {
+  justify-self: center;
+  margin-bottom: 0;
+}
+
+.zaikolog-page__back {
+  justify-self: start;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-muted);
+  transition: color 0.2s ease;
+}
+
+.zaikolog-page__back:hover {
+  color: var(--color-primary-dark);
+}
+
+.zaikolog-page__header h1 {
+  font-size: 32px;
+  line-height: 1.3;
+}
+
+.zaikolog-page__highlight {
+  max-width: 720px;
+  margin: 0 auto 24px;
+  background: rgba(77, 182, 172, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 24px 32px;
+}
+
+.zaikolog-page__highlight p {
+  color: var(--color-dark);
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+}
+
+.zaikolog-page__block {
+  max-width: 720px;
+  margin: 0 auto 48px;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-soft);
+}
+
+.zaikolog-page__block h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.zaikolog-page__block p {
+  color: var(--color-text);
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.zaikolog-page__block p:last-child {
+  margin-bottom: 0;
+}
+
+.zaikolog-page__cta {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.zaikolog-page__cta h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.zaikolog-page__cta p {
+  color: var(--color-muted);
+  margin-bottom: 24px;
+}
+
+@media (max-width: 640px) {
+  .zaikolog-page__header h1 {
+    font-size: 25px;
+  }
+
+  .zaikolog-page__block,
+  .zaikolog-page__highlight {
+    padding: 24px;
+  }
+}

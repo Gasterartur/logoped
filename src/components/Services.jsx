@@ -4,36 +4,40 @@ import './Services.css';
 
 const SERVICES = [
   {
-    icon: '🔍',
-    title: 'Диагностика речи',
-    text: 'Полное обследование речевого развития ребёнка, выявление причин трудностей и разработка плана коррекции.',
+    image: '/image/diagnostika.webp',
+    title: 'Диагностика и развитие речи ЗРР',
+    text: 'Полное обследование речи, выявление причин задержки развития и разработка плана коррекции — от диагностики до запуска речи.',
     link: '/diagnostika-rechi',
   },
   {
-    icon: '👄',
+    image: '/image/postanovkazvuka.jpg',
     title: 'Постановка звуков',
     text: 'Коррекция звукопроизношения: постановка, автоматизация и введение звуков в самостоятельную речь.',
     link: '/postanovka-zvukov',
   },
   {
-    icon: '💬',
-    title: 'Развитие речи (ЗРР)',
-    text: 'Работа с неговорящими и малоговорящими детьми: запуск речи, расширение словаря, построение фраз.',
+    image: '/image/afaziolog.png',
+    title: 'Афазиолог. Восстановление речи при афазии',
+    text: 'Работа со взрослыми после инсульта, травмы или операции: восстановление понимания и произношения речи.',
+    link: '/afaziolog',
   },
   {
-    icon: '🎒',
-    title: 'Подготовка к школе',
-    text: 'Развитие фонематического слуха, обучение грамоте, профилактика дисграфии и дислексии.',
+    image: '/image/logopedVzroslih.png',
+    title: 'Логопед для взрослых',
+    text: 'Техника речи, устранение акцента, коррекция дикции и звукопроизношения — индивидуально для взрослых.',
+    link: '/logoped-dlya-vzroslyh',
   },
   {
-    icon: '🌊',
-    title: 'Коррекция заикания',
+    image: '/image/zaikolog.png',
+    title: 'Коррекция заикания. Заиколог',
     text: 'Комплексная работа над плавностью и темпом речи, снятие речевых судорог и тревожности.',
+    link: '/zaikolog',
   },
   {
-    icon: '💻',
-    title: 'Онлайн-занятия',
-    text: 'Эффективные логопедические занятия по видеосвязи для детей из любого города.',
+    image: '/image/ABA.png',
+    title: 'ABA-терапия для запуска речи при аутизме и алалии',
+    text: 'Развитие коммуникации, поведения и мотивации к речи у неговорящих детей.',
+    link: '/aba-terapiya',
   },
 ];
 
@@ -60,18 +64,20 @@ function Services() {
           {SERVICES.map((service, index) => (
             <Reveal
               key={service.title}
-              as={service.link ? Link : 'article'}
+              as={Link}
               to={service.link}
-              className={`services__card ${service.link ? 'services__card--linked' : ''}`}
+              className="services__card"
               direction={getDirection(index)}
               delay={(index % 3) * 100}
+              animate={index !== 4}
             >
-              <div className="services__icon" aria-hidden="true">{service.icon}</div>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-              {service.link && (
+              <img className="services__bg" src={service.image} alt="" aria-hidden="true" />
+              <div className="services__overlay" aria-hidden="true" />
+              <div className="services__body">
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
                 <span className="services__hint">Нажмите для подробной информации →</span>
-              )}
+              </div>
             </Reveal>
           ))}
         </div>

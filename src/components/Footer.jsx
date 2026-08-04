@@ -11,7 +11,7 @@ const NAV_LINKS = [
 ];
 
 const SOCIALS = [
-  { href: 'https://vk.com', label: 'VK', icon: 'VK' },
+  { href: 'https://vk.com/logoped_teams_online', label: 'VK', icon: 'VK' },
   { href: 'https://t.me', label: 'Telegram', icon: '✈️' },
   { href: 'https://wa.me', label: 'WhatsApp', icon: '💬' },
 ];

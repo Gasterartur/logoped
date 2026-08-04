@@ -34,7 +34,7 @@ function Header() {
               </li>
             ))}
           </ul>
-          <a href="tel:+79991234567" className="header__phone">+7 (999) 123-45-67</a>
+          <a href="tel:+79171489510" className="header__phone">+7 (917) 148-95-10</a>
           <Link to="/#contacts" className="btn btn-primary" onClick={closeMenu}>Записаться</Link>
         </nav>
 

@@ -1,8 +1,16 @@
 import { useReveal } from '../hooks/useReveal';
 
-function Reveal({ children, className = '', as: Tag = 'div', delay = 0, direction, ...rest }) {
-  const [ref, isVisible] = useReveal(0.45);
+function Reveal({ children, className = '', as: Tag = 'div', delay = 0, direction, threshold = 0.45, animate = true, ...rest }) {
+  const [ref, isVisible] = useReveal(threshold);
   const directionClass = direction ? `reveal--from-${direction}` : '';
+
+  if (!animate) {
+    return (
+      <Tag className={className} {...rest}>
+        {children}
+      </Tag>
+    );
+  }
 
   return (
     <Tag

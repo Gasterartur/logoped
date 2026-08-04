@@ -8,9 +8,20 @@
   text-align: center;
 }
 
-.zvukov-article__back {
-  display: inline-block;
+.zvukov-article__topline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.zvukov-article__topline .eyebrow {
+  justify-self: center;
+  margin-bottom: 0;
+}
+
+.zvukov-article__back {
+  justify-self: start;
   font-weight: 700;
   font-size: 14px;
   color: var(--color-muted);

@@ -52,8 +52,8 @@ function Services() {
       <div className="container">
         <Reveal className="section-header">
           <span className="eyebrow">Услуги</span>
-          <h2>Чем я могу помочь вашему ребёнку</h2>
-          <p>Подбираю программу занятий индивидуально, с учётом возраста и особенностей ребёнка.</p>
+          <h2>Чем я могу помочь Вам или вашему ребёнку</h2>
+          <p>Подбираю программу занятий индивидуально, с учётом возраста и особенностей.</p>
         </Reveal>
 
         <div className="services__grid">

@@ -31,8 +31,11 @@ function PostanovkaZvukov() {
     <section className="section zvukov-article">
       <div className="container">
         <Reveal className="zvukov-article__header">
-          <Link to="/#services" className="zvukov-article__back">← Ко всем услугам</Link>
-          <span className="eyebrow">Постановка звуков</span>
+          <div className="zvukov-article__topline">
+            <Link to="/#services" className="zvukov-article__back">← Ко всем услугам</Link>
+            <span className="eyebrow">Постановка звуков</span>
+            <span className="zvukov-article__spacer" aria-hidden="true" />
+          </div>
           <h1>Сколько нужно занятий у логопеда, чтобы поставить звук? ❓</h1>
           <p>
             Самый часто встречающийся вопрос в моей практике — «сколько времени ⏳ нужно, чтобы

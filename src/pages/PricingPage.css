@@ -8,9 +8,20 @@
   text-align: center;
 }
 
-.pricing-page__back {
-  display: inline-block;
+.pricing-page__topline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.pricing-page__topline .eyebrow {
+  justify-self: center;
+  margin-bottom: 0;
+}
+
+.pricing-page__back {
+  justify-self: start;
   font-weight: 700;
   font-size: 14px;
   color: var(--color-muted);

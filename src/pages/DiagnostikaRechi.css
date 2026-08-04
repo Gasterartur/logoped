@@ -8,9 +8,20 @@
   text-align: center;
 }
 
-.diagnostics-article__back {
-  display: inline-block;
+.diagnostics-article__topline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.diagnostics-article__topline .eyebrow {
+  justify-self: center;
+  margin-bottom: 0;
+}
+
+.diagnostics-article__back {
+  justify-self: start;
   font-weight: 700;
   font-size: 14px;
   color: var(--color-muted);

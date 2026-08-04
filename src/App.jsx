@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import PricingPage from './pages/PricingPage';
 import DiagnostikaRechi from './pages/DiagnostikaRechi';
 import PostanovkaZvukov from './pages/PostanovkaZvukov';
+import Credentials from './pages/Credentials';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/uslugi-i-ceny" element={<PricingPage />} />
           <Route path="/diagnostika-rechi" element={<DiagnostikaRechi />} />
           <Route path="/postanovka-zvukov" element={<PostanovkaZvukov />} />
+          <Route path="/diplomy-i-sertifikaty" element={<Credentials />} />
         </Routes>
       </main>
       <Footer />

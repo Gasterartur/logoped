@@ -56,8 +56,11 @@ function PricingPage() {
     <section className="section pricing-page">
       <div className="container">
         <Reveal className="pricing-page__header">
-          <Link to="/" className="pricing-page__back">← На главную</Link>
-          <span className="eyebrow">Услуги и цены</span>
+          <div className="pricing-page__topline">
+            <Link to="/" className="pricing-page__back">← На главную</Link>
+            <span className="eyebrow">Услуги и цены</span>
+            <span className="pricing-page__spacer" aria-hidden="true" />
+          </div>
           <h1>Полный прайс-лист</h1>
           <p>
             Все цены указаны за занятие продолжительностью 60 минут, очно (Самара) или онлайн.

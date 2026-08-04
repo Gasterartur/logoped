@@ -57,8 +57,11 @@ function DiagnostikaRechi() {
     <section className="section diagnostics-article">
       <div className="container">
         <Reveal className="diagnostics-article__header">
-          <Link to="/#services" className="diagnostics-article__back">← Ко всем услугам</Link>
-          <span className="eyebrow">Диагностика речи</span>
+          <div className="diagnostics-article__topline">
+            <Link to="/#services" className="diagnostics-article__back">← Ко всем услугам</Link>
+            <span className="eyebrow">Диагностика речи</span>
+            <span className="diagnostics-article__spacer" aria-hidden="true" />
+          </div>
           <h1>Почему ребёнок молчит: 5 причин, которые стоит проверить</h1>
           <p>
             Вашему ребёнку уже 1,5 года, или 2 года, или даже 3 и больше, а он ещё не заговорил?

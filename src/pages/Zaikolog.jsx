@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import './Zaikolog.css';
 
 function Zaikolog() {
   return (
-    <section className="section zaikolog-page">
+    <>
+      <Seo
+        title="Заиколог — коррекция заикания"
+        description="Коррекция заикания у детей и взрослых по авторской методике: логопедический и психологический подход."
+        path="/zaikolog"
+      />
+      <section className="section zaikolog-page">
       <div className="container">
         <Reveal className="zaikolog-page__header">
           <div className="zaikolog-page__topline">
@@ -52,7 +59,8 @@ function Zaikolog() {
           <Link to="/#contacts" className="btn btn-primary">Записаться на консультацию</Link>
         </Reveal>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
 

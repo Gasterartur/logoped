@@ -11,6 +11,7 @@ import Afaziolog from './pages/Afaziolog';
 import ABATerapiya from './pages/ABATerapiya';
 import LogopedVzroslyh from './pages/LogopedVzroslyh';
 import Zaikolog from './pages/Zaikolog';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/logoped-dlya-vzroslyh" element={<LogopedVzroslyh />} />
           <Route path="/zaikolog" element={<Zaikolog />} />
           <Route path="/aba-terapiya" element={<ABATerapiya />} />
+          <Route path="/politika-konfidencialnosti" element={<PrivacyPolicy />} />
         </Routes>
       </main>
       <Footer />

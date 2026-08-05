@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import './DiagnostikaRechi.css';
 
@@ -54,7 +55,13 @@ const ADVICE = [
 
 function DiagnostikaRechi() {
   return (
-    <section className="section diagnostics-article">
+    <>
+      <Seo
+        title="Почему ребёнок молчит: 5 причин, которые стоит проверить"
+        description="5 главных причин задержки речи у детей — алалия, нарушение слуха, среда, мотивация, особенности развития. Когда обращаться к логопеду."
+        path="/diagnostika-rechi"
+      />
+      <section className="section diagnostics-article">
       <div className="container">
         <Reveal className="diagnostics-article__header">
           <div className="diagnostics-article__topline">
@@ -116,7 +123,8 @@ function DiagnostikaRechi() {
           <Link to="/#contacts" className="btn btn-primary">Записаться на консультацию</Link>
         </Reveal>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
 

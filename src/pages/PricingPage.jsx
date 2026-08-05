@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import './PricingPage.css';
 
@@ -53,7 +54,13 @@ const CATEGORIES = [
 
 function PricingPage() {
   return (
-    <section className="section pricing-page">
+    <>
+      <Seo
+        title="Услуги и цены"
+        description="Полный прайс-лист логопеда: диагностика, постановка звуков, работа с афазией, заиканием, ABA-терапия. Цены за занятие онлайн."
+        path="/uslugi-i-ceny"
+      />
+      <section className="section pricing-page">
       <div className="container">
         <Reveal className="pricing-page__header">
           <div className="pricing-page__topline">
@@ -92,7 +99,8 @@ function PricingPage() {
           <Link to="/#contacts" className="btn btn-primary">Записаться на консультацию</Link>
         </Reveal>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import karimova1 from '../assets/images/karimova1.png';
 import './Header.css';
 
 const NAV_LINKS = [
@@ -19,7 +20,7 @@ function Header() {
     <header className="header">
       <div className="container header__inner">
         <Link to="/" className="header__logo" onClick={closeMenu}>
-          <img className="header__logo-photo" src="/image/karimova1.png" alt="Светлана Каримова" />
+          <img className="header__logo-photo" src={karimova1} alt="Светлана Каримова" />
           <span>
             Светлана Каримова
             <small>логопед-дефектолог</small>

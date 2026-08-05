@@ -8,12 +8,11 @@ const NAV_LINKS = [
   { href: '/#reviews', label: 'Отзывы' },
   { href: '/#contacts', label: 'Контакты' },
   { href: '/uslugi-i-ceny', label: 'Полный прайс-лист' },
+  { href: '/politika-konfidencialnosti', label: 'Политика конфиденциальности' },
 ];
 
 const SOCIALS = [
   { href: 'https://vk.com/logoped_teams_online', label: 'VK', icon: 'VK' },
-  { href: 'https://t.me', label: 'Telegram', icon: '✈️' },
-  { href: 'https://wa.me', label: 'WhatsApp', icon: '💬' },
 ];
 
 function Footer() {
@@ -46,7 +45,7 @@ function Footer() {
 
       <div className="footer__bottom">
         <div className="container">
-          © {year} Светлана Каримова. Логопедический сайт-шаблон. Все права защищены.
+          © {year} Светлана Каримова. Все права защищены.
         </div>
       </div>
     </footer>

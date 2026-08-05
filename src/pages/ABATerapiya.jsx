@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import './ABATerapiya.css';
 
 function ABATerapiya() {
   return (
-    <section className="section aba-page">
+    <>
+      <Seo
+        title="ABA-терапия для запуска речи при аутизме и алалии"
+        description="ABA-терапия для запуска речи у детей с аутизмом, сенсорной и моторной алалией. Опыт работы с 2005 года."
+        path="/aba-terapiya"
+      />
+      <section className="section aba-page">
       <div className="container">
         <Reveal className="aba-page__header">
           <div className="aba-page__topline">
@@ -49,7 +56,8 @@ function ABATerapiya() {
           <Link to="/#contacts" className="btn btn-primary">Записаться на консультацию</Link>
         </Reveal>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
 

@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import './LogopedVzroslyh.css';
 
 function LogopedVzroslyh() {
   return (
-    <section className="section vzroslyh-page">
+    <>
+      <Seo
+        title="Логопед для взрослых"
+        description="Постановка звуков, коррекция дикции, голоса и акцента у взрослых. Работа с дизартрией, дисграфией и дислексией."
+        path="/logoped-dlya-vzroslyh"
+      />
+      <section className="section vzroslyh-page">
       <div className="container">
         <Reveal className="vzroslyh-page__header">
           <div className="vzroslyh-page__topline">
@@ -49,7 +56,8 @@ function LogopedVzroslyh() {
           <Link to="/#contacts" className="btn btn-primary">Записаться на консультацию</Link>
         </Reveal>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
 

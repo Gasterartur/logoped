@@ -1,16 +1,17 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
 import './Contacts.css';
 
-const INITIAL_FORM = { name: '', phone: '', message: '' };
+const INITIAL_FORM = { name: '', phone: '', message: '', consent: false };
 
 function Contacts() {
   const [form, setForm] = useState(INITIAL_FORM);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = event.target;
+    setForm((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
   };
 
   const handleSubmit = (event) => {
@@ -106,7 +107,27 @@ function Contacts() {
                 onChange={handleChange}
               />
             </label>
+            <label className="contacts__consent">
+              <input
+                type="checkbox"
+                name="consent"
+                checked={form.consent}
+                onChange={handleChange}
+                required
+              />
+              <span>Согласен(-на) с условиями обработки персональных данных</span>
+            </label>
             <button type="submit" className="btn btn-primary btn-block">Отправить заявку</button>
+            <p className="contacts__disclaimer">
+              Нажимая на кнопку «Отправить заявку», вы даёте согласие на обработку своих
+              персональных данных и персональных данных несовершеннолетнего (если применимо) в
+              соответствии с{' '}
+              <Link to="/politika-konfidencialnosti" target="_blank" rel="noreferrer">
+                Политикой конфиденциальности
+              </Link>
+              . Заполняя форму, вы подтверждаете, что являетесь совершеннолетним лицом и/или
+              законным представителем (родителем, опекуном) несовершеннолетнего.
+            </p>
             {isSubmitted && (
               <p className="contacts__success">Спасибо! Ваша заявка отправлена, я скоро свяжусь с вами.</p>
             )}

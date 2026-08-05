@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import './Afaziolog.css';
 
 function Afaziolog() {
   return (
-    <section className="section afaziolog-page">
+    <>
+      <Seo
+        title="Афазиолог — восстановление речи при афазии"
+        description="Восстановление речи при моторной, сенсорной и тотальной афазии после инсульта или травмы. Опыт работы с 2011 года."
+        path="/afaziolog"
+      />
+      <section className="section afaziolog-page">
       <div className="container">
         <Reveal className="afaziolog-page__header">
           <div className="afaziolog-page__topline">
@@ -52,7 +59,8 @@ function Afaziolog() {
           <Link to="/#contacts" className="btn btn-primary">Записаться на консультацию</Link>
         </Reveal>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
 

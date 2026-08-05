@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import './Credentials.css';
 
@@ -45,7 +46,13 @@ const ACCORDION = [
 
 function Credentials() {
   return (
-    <section className="section credentials-page">
+    <>
+      <Seo
+        title="Дипломы, сертификаты и опыт работы"
+        description="Образование, сертификаты, курсы повышения квалификации и опыт работы логопеда-дефектолога Светланы Каримовой с 2005 года."
+        path="/diplomy-i-sertifikaty"
+      />
+      <section className="section credentials-page">
       <div className="container">
         <Reveal className="credentials-page__header">
           <div className="credentials-page__topline">
@@ -112,7 +119,8 @@ function Credentials() {
           <Link to="/#contacts" className="btn btn-primary">Записаться на консультацию</Link>
         </Reveal>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
 

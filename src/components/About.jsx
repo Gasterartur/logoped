@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
+import karimova2 from '../assets/images/karimova2.png';
 import './About.css';
 
 const FACTS = [
@@ -15,7 +16,7 @@ function About() {
       <div className="container">
         <div className="about__inner">
           <Reveal className="about__media">
-            <img className="about__photo" src="/image/karimova2.png" alt="Светлана Каримова" />
+            <img className="about__photo" src={karimova2} alt="Светлана Каримова" />
           </Reveal>
 
           <Reveal className="about__content" delay={150}>

@@ -1,40 +1,46 @@
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
+import diagnostikaImage from '../assets/images/diagnostika.webp';
+import postanovkaZvukaImage from '../assets/images/postanovkazvuka.jpg';
+import afaziologImage from '../assets/images/afaziolog.png';
+import logopedVzroslihImage from '../assets/images/logopedVzroslih.png';
+import zaikologImage from '../assets/images/zaikolog.png';
+import abaImage from '../assets/images/ABA.png';
 import './Services.css';
 
 const SERVICES = [
   {
-    image: '/image/diagnostika.webp',
+    image: diagnostikaImage,
     title: 'Диагностика и развитие речи ЗРР',
     text: 'Полное обследование речи, выявление причин задержки развития и разработка плана коррекции — от диагностики до запуска речи.',
     link: '/diagnostika-rechi',
   },
   {
-    image: '/image/postanovkazvuka.jpg',
+    image: postanovkaZvukaImage,
     title: 'Постановка звуков',
     text: 'Коррекция звукопроизношения: постановка, автоматизация и введение звуков в самостоятельную речь.',
     link: '/postanovka-zvukov',
   },
   {
-    image: '/image/afaziolog.png',
+    image: afaziologImage,
     title: 'Афазиолог. Восстановление речи при афазии',
     text: 'Работа со взрослыми после инсульта, травмы или операции: восстановление понимания и произношения речи.',
     link: '/afaziolog',
   },
   {
-    image: '/image/logopedVzroslih.png',
+    image: logopedVzroslihImage,
     title: 'Логопед для взрослых',
     text: 'Техника речи, устранение акцента, коррекция дикции и звукопроизношения — индивидуально для взрослых.',
     link: '/logoped-dlya-vzroslyh',
   },
   {
-    image: '/image/zaikolog.png',
+    image: zaikologImage,
     title: 'Коррекция заикания. Заиколог',
     text: 'Комплексная работа над плавностью и темпом речи, снятие речевых судорог и тревожности.',
     link: '/zaikolog',
   },
   {
-    image: '/image/ABA.png',
+    image: abaImage,
     title: 'ABA-терапия для запуска речи при аутизме и алалии',
     text: 'Развитие коммуникации, поведения и мотивации к речи у неговорящих детей.',
     link: '/aba-terapiya',

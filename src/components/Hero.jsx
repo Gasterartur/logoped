@@ -1,3 +1,4 @@
+import heroVideo from '../assets/video/logoped.webm';
 import './Hero.css';
 
 const STATS = [
@@ -11,11 +12,12 @@ function Hero() {
     <section id="home" className="hero">
       <video
         className="hero__bg-video"
-        src="/video/logoped.mp4"
+        src={heroVideo}
         autoPlay
         loop
         muted
         playsInline
+        preload="metadata"
         aria-hidden="true"
       />
 

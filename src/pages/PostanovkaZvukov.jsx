@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
 import './PostanovkaZvukov.css';
 
@@ -28,7 +29,13 @@ const STORIES = [
 
 function PostanovkaZvukov() {
   return (
-    <section className="section zvukov-article">
+    <>
+      <Seo
+        title="Сколько нужно занятий, чтобы поставить звук"
+        description="Сколько времени занимает постановка и автоматизация звуков у логопеда — реальные сроки и примеры из практики."
+        path="/postanovka-zvukov"
+      />
+      <section className="section zvukov-article">
       <div className="container">
         <Reveal className="zvukov-article__header">
           <div className="zvukov-article__topline">
@@ -117,7 +124,8 @@ function PostanovkaZvukov() {
           <Link to="/#contacts" className="btn btn-primary">Записаться на консультацию</Link>
         </Reveal>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
 

@@ -47,6 +47,9 @@ function Footer() {
         <div className="container">
           © {year} Светлана Каримова. Все права защищены.
         </div>
+        <div className="creater">
+          Сайт создан студией Лабрити <a href="https://labrity.com/ru" target="_blank" rel="noreferrer">Перейти на сайт студии</a>
+        </div>
       </div>
     </footer>
   );

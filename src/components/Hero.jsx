@@ -1,4 +1,4 @@
-import heroVideo from '../assets/video/logoped.webm';
+import heroVideo from '../assets/video/logoped1.webm';
 import './Hero.css';
 
 const STATS = [

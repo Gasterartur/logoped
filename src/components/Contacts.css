@@ -61,6 +61,16 @@
   box-shadow: var(--shadow-soft);
 }
 
+.contacts__honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  left: -9999px;
+}
+
 .contacts__form label {
   display: grid;
   gap: 8px;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
 import './Contacts.css';
 
-const INITIAL_FORM = { name: '', phone: '', message: '', consent: false };
+const INITIAL_FORM = { name: '', phone: '', message: '', consent: false, website: '' };
 
 function Contacts() {
   const [form, setForm] = useState(INITIAL_FORM);
@@ -16,6 +16,13 @@ function Contacts() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Honeypot: real users never see or fill this field, bots usually do.
+    if (form.website) {
+      setForm(INITIAL_FORM);
+      return;
+    }
+
     setIsSubmitted(true);
     setForm(INITIAL_FORM);
   };
@@ -75,6 +82,17 @@ function Contacts() {
           </Reveal>
 
           <Reveal as="form" className="contacts__form" onSubmit={handleSubmit} delay={150}>
+            <label className="contacts__honeypot" aria-hidden="true">
+              Не заполняйте это поле
+              <input
+                type="text"
+                name="website"
+                value={form.website}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </label>
             <label>
               Ваше имя
               <input

@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Gasterartur/logoped
   branch: main
-  base_url: https://logoped-karimova.ru
+  base_url: https://logoped-sage.vercel.app
   auth_endpoint: api/auth
 
 publish_mode: simple

@@ -1,31 +1,9 @@
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
+import pricesData from '../content/prices.json';
 import './Prices.css';
 
-const PLANS = [
-  {
-    title: 'Диагностика и консультация',
-    price: 'договорная',
-    duration: 'занятие',
-    features: ['Обследование речи', 'Беседа с родителями', 'План коррекции'],
-    badge: 'Первый шаг',
-  },
-  {
-    title: 'Индивидуальное занятие',
-    price: '2 000 - 2 500 ₽',
-    duration: 'занятие',
-    features: ['По видеосвязи', 'Игровые упражнения', 'Рекомендации на дом'],
-    badge: 'Популярно',
-    highlighted: true,
-  },
-  {
-    title: 'ABA-терапия для запуска речи',
-    price: 'от 2 500 ₽',
-    duration: 'занятие',
-    features: ['Для неговорящих детей', 'Работа с поведением и мотивацией', 'При РАС и задержке развития'],
-    badge: 'Дополнительно',
-  },
-];
+const PLANS = pricesData.items;
 
 function Prices() {
   return (

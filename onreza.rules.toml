@@ -6,6 +6,16 @@ when.path = { exact = "/admin" }
 action.rewrite = { target = "/admin/index.html" }
 
 [[rule]]
+id = "cms-auth"
+when.path = { exact = "/api/auth" }
+action.pipeline = { steps = [ { handle = "cms-auth" } ] }
+
+[[rule]]
+id = "cms-callback"
+when.path = { exact = "/api/callback" }
+action.pipeline = { steps = [ { handle = "cms-callback" } ] }
+
+[[rule]]
 id = "spa-fallback"
 when.path = { glob = "/{rest...}" }
 when.not = { path = { prefix = "/api" } }

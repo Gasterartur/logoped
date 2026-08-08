@@ -1,0 +1,12 @@
+schema = "EDGE_RULE_SET_V1"
+
+[[rule]]
+id = "admin-index"
+when.path = { exact = "/admin" }
+action.rewrite = { target = "/admin/index.html" }
+
+[[rule]]
+id = "spa-fallback"
+when.path = { glob = "/{rest...}" }
+when.not = { path = { prefix = "/api" } }
+action.rewrite = { target = "/index.html", if_no_file = true }

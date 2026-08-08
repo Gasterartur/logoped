@@ -52,102 +52,24 @@
   color: var(--color-primary-dark);
 }
 
-.contacts__form {
+.contacts__cta-block {
   display: grid;
   gap: 14px;
+  align-content: center;
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  padding: 28px;
+  padding: 40px 32px;
   box-shadow: var(--shadow-soft);
-}
-
-.contacts__honeypot {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  left: -9999px;
-}
-
-.contacts__form label {
-  display: grid;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--color-dark);
-}
-
-.contacts__form input,
-.contacts__form textarea {
-  font-family: var(--font-body);
-  font-size: 15px;
-  padding: 12px 14px;
-  border-radius: var(--radius-sm);
-  border: 2px solid rgba(46, 58, 70, 0.12);
-  background: var(--color-bg);
-  resize: vertical;
-  transition: border-color 0.2s ease;
-}
-
-.contacts__form input:focus,
-.contacts__form textarea:focus {
-  outline: none;
-  border-color: var(--color-secondary);
-}
-
-.contacts__consent {
-  display: flex !important;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 10px;
-  font-weight: 400 !important;
-  font-size: 13px !important;
-  color: var(--color-muted);
-  line-height: 1.4;
-}
-
-.contacts__consent input {
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  margin-top: 2px;
-  accent-color: var(--color-primary);
-}
-
-.contacts__consent a {
-  color: var(--color-primary-dark);
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.contacts__consent a:hover {
-  color: var(--color-secondary-dark);
-}
-
-.contacts__disclaimer {
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--color-muted);
   text-align: center;
 }
 
-.contacts__disclaimer a {
-  color: var(--color-primary-dark);
-  font-weight: 600;
-  text-decoration: underline;
+.contacts__cta-block h3 {
+  font-size: 22px;
 }
 
-.contacts__disclaimer a:hover {
-  color: var(--color-secondary-dark);
-}
-
-.contacts__success {
-  color: var(--color-secondary-dark);
-  font-weight: 700;
-  font-size: 14px;
-  text-align: center;
+.contacts__cta-block p {
+  color: var(--color-muted);
+  margin-bottom: 8px;
 }
 
 .contacts__map {

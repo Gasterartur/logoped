@@ -1,156 +1,79 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
 import './Contacts.css';
 
-const INITIAL_FORM = { name: '', phone: '', message: '', consent: false, website: '' };
-
 function Contacts() {
-  const [form, setForm] = useState(INITIAL_FORM);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleChange = (event) => {
-    const { name, value, type, checked } = event.target;
-    setForm((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // Honeypot: real users never see or fill this field, bots usually do.
-    if (form.website) {
-      setForm(INITIAL_FORM);
-      return;
-    }
-
-    setIsSubmitted(true);
-    setForm(INITIAL_FORM);
-  };
-
   return (
     <section id="contacts" className="section contacts">
       <div className="container">
-        <Reveal className="section-header">
-          <span className="eyebrow">Контакты</span>
-          <h2>Запишитесь на первое занятие</h2>
-          <p>Оставьте заявку, и я свяжусь с вами в течение дня, чтобы подобрать удобное время.</p>
+        <Reveal className="contacts__reveal" threshold={0.1}>
+          <div className="section-header">
+            <span className="eyebrow">Контакты</span>
+            <h2>Запишитесь на первое занятие</h2>
+            <p>Оставьте заявку, и я свяжусь с вами в течение дня, чтобы подобрать удобное время.</p>
+          </div>
+
+          <div className="contacts__grid">
+            <div className="contacts__info">
+              <div className="contacts__item">
+                <span className="contacts__icon" aria-hidden="true">📍</span>
+                <div>
+                  <h3>Адрес</h3>
+                  <p>ул. Петра Алабина, 2, 443032, г. Самара</p>
+                </div>
+              </div>
+
+              <div className="contacts__item">
+                <span className="contacts__icon" aria-hidden="true">📞</span>
+                <div>
+                  <h3>Телефон</h3>
+                  <p><a href="tel:+79171489510">+7 (917) 148-95-10</a></p>
+                </div>
+              </div>
+              <div className="contacts__item">
+                <span className="contacts__icon" aria-hidden="true">💬</span>
+                <div>
+                  <h3>ВКонтакте</h3>
+                  <p><a href="https://vk.com/logoped_teams_online" target="_blank" rel="noreferrer">@logoped_teams_online</a></p>
+                </div>
+              </div>
+              <div className="contacts__item">
+                <span className="contacts__icon" aria-hidden="true">🕒</span>
+                <div>
+                  <h3>Часы работы</h3>
+                  <p>Пн–Сб: 9:00–20:00</p>
+                </div>
+              </div>
+
+              <div className="contacts__map">
+                <iframe
+                  title="Карта проезда"
+                  src="https://yandex.ru/map-widget/v1/?ll=50.073768%2C53.144759&z=17&l=map&pt=50.073768,53.144759,pm2rdm"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  loading="lazy"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+
+            <div className="contacts__cta-block">
+              <h3>Напишите мне напрямую</h3>
+              <p>Отвечаю в течение дня — выберите удобный способ связи.</p>
+              <a
+                href="https://vk.ru/im?sel=-65485890"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-primary btn-block"
+              >
+                💬 Написать в VK
+              </a>
+              <a href="mailto:vukikar@yandex.ru" className="btn btn-secondary btn-block">
+                ✉️ Написать на почту
+              </a>
+            </div>
+          </div>
         </Reveal>
-
-        <div className="contacts__grid">
-          <Reveal className="contacts__info">
-            <div className="contacts__item">
-              <span className="contacts__icon" aria-hidden="true">📍</span>
-              <div>
-                <h3>Адрес</h3>
-                <p>ул. Петра Алабина, 2, 443032, г. Самара</p>
-              </div>
-            </div>
-
-            <div className="contacts__item">
-              <span className="contacts__icon" aria-hidden="true">📞</span>
-              <div>
-                <h3>Телефон</h3>
-                <p><a href="tel:+79171489510">+7 (917) 148-95-10</a></p>
-              </div>
-            </div>
-            <div className="contacts__item">
-              <span className="contacts__icon" aria-hidden="true">💬</span>
-              <div>
-                <h3>ВКонтакте</h3>
-                <p><a href="https://vk.com/logoped_teams_online" target="_blank" rel="noreferrer">@logoped_teams_online</a></p>
-              </div>
-            </div>
-            <div className="contacts__item">
-              <span className="contacts__icon" aria-hidden="true">🕒</span>
-              <div>
-                <h3>Часы работы</h3>
-                <p>Пн–Сб: 9:00–20:00</p>
-              </div>
-            </div>
-
-            <div className="contacts__map">
-              <iframe
-                title="Карта проезда"
-                src="https://yandex.ru/map-widget/v1/?ll=50.073768%2C53.144759&z=17&l=map&pt=50.073768,53.144759,pm2rdm"
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                loading="lazy"
-                allowFullScreen
-              />
-            </div>
-          </Reveal>
-
-          <Reveal as="form" className="contacts__form" onSubmit={handleSubmit} delay={150}>
-            <label className="contacts__honeypot" aria-hidden="true">
-              Не заполняйте это поле
-              <input
-                type="text"
-                name="website"
-                value={form.website}
-                onChange={handleChange}
-                tabIndex={-1}
-                autoComplete="off"
-              />
-            </label>
-            <label>
-              Ваше имя
-              <input
-                type="text"
-                name="name"
-                placeholder="Как к вам обращаться"
-                value={form.name}
-                onChange={handleChange}
-                required
-              />
-            </label>
-            <label>
-              Телефон
-              <input
-                type="tel"
-                name="phone"
-                placeholder="+7 (___) ___-__-__"
-                value={form.phone}
-                onChange={handleChange}
-                required
-              />
-            </label>
-            <label>
-              Сообщение
-              <textarea
-                name="message"
-                placeholder="Расскажите о трудностях ребёнка (необязательно)"
-                rows="4"
-                value={form.message}
-                onChange={handleChange}
-              />
-            </label>
-            <label className="contacts__consent">
-              <input
-                type="checkbox"
-                name="consent"
-                checked={form.consent}
-                onChange={handleChange}
-                required
-              />
-              <span>Согласен(-на) с условиями обработки персональных данных</span>
-            </label>
-            <button type="submit" className="btn btn-primary btn-block">Отправить заявку</button>
-            <p className="contacts__disclaimer">
-              Нажимая на кнопку «Отправить заявку», вы даёте согласие на обработку своих
-              персональных данных и персональных данных несовершеннолетнего (если применимо) в
-              соответствии с{' '}
-              <Link to="/politika-konfidencialnosti" target="_blank" rel="noreferrer">
-                Политикой конфиденциальности
-              </Link>
-              . Заполняя форму, вы подтверждаете, что являетесь совершеннолетним лицом и/или
-              законным представителем (родителем, опекуном) несовершеннолетнего.
-            </p>
-            {isSubmitted && (
-              <p className="contacts__success">Спасибо! Ваша заявка отправлена, я скоро свяжусь с вами.</p>
-            )}
-          </Reveal>
-        </div>
       </div>
     </section>
   );

@@ -8,7 +8,6 @@ const NAV_LINKS = [
   { href: '/#reviews', label: 'Отзывы' },
   { href: '/#contacts', label: 'Контакты' },
   { href: '/uslugi-i-ceny', label: 'Полный прайс-лист' },
-  { href: '/politika-konfidencialnosti', label: 'Политика конфиденциальности' },
 ];
 
 const SOCIALS = [

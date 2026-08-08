@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import PricingPage from './pages/PricingPage';
 import ServiceDetail from './pages/ServiceDetail';
 import Credentials from './pages/Credentials';
-import PrivacyPolicy from './pages/PrivacyPolicy';
 import Admin from './pages/Admin';
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
           <Route path="/logoped-dlya-vzroslyh" element={<ServiceDetail id="logoped-dlya-vzroslyh" />} />
           <Route path="/zaikolog" element={<ServiceDetail id="zaikolog" />} />
           <Route path="/aba-terapiya" element={<ServiceDetail id="aba-terapiya" />} />
-          <Route path="/politika-konfidencialnosti" element={<PrivacyPolicy />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>

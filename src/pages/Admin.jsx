@@ -138,30 +138,75 @@ function PricesEditor() {
 
 function ServicesEditor() {
   const { items, setItems, loading, saving, error, savedMessage, save } = useCollection('services');
+  const [index, setIndex] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [draftDetails, setDraftDetails] = useState('');
 
   if (loading) return <p>Загрузка…</p>;
   if (!items) return <p className="admin__error">{error}</p>;
 
-  const update = (index, patch) => setItems(items.map((item, i) => (i === index ? { ...item, ...patch } : item)));
+  const item = items[index];
+  const update = (patch) => setItems(items.map((it, i) => (i === index ? { ...it, ...patch } : it)));
+  const go = (dir) => setIndex((i) => (i + dir + items.length) % items.length);
+
+  function openDetailsModal() {
+    setDraftDetails(item.details || '');
+    setModalOpen(true);
+  }
+
+  function saveDetailsModal() {
+    update({ details: draftDetails });
+    setModalOpen(false);
+  }
 
   return (
     <div className="admin__collection">
       <p className="admin__hint">
         Карточки услуг привязаны к разделам сайта по id — добавлять или удалять их здесь нельзя, только менять текст.
       </p>
-      {items.map((item, index) => (
-        <div key={item.id || index} className="admin__card">
-          <label>
-            Название карточки
-            <input value={item.title} onChange={(e) => update(index, { title: e.target.value })} />
-          </label>
-          <label>
-            Описание
-            <textarea value={item.text} onChange={(e) => update(index, { text: e.target.value })} />
-          </label>
+
+      <div className="admin__carousel">
+        <button type="button" className="admin__carousel-arrow" onClick={() => go(-1)} aria-label="Предыдущая услуга">‹</button>
+
+        <div className="admin__carousel-page">
+          <div className="admin__carousel-counter">{index + 1} / {items.length}</div>
+          <div className="admin__card admin__card--full">
+            <label>
+              Название карточки
+              <input value={item.title} onChange={(e) => update({ title: e.target.value })} />
+            </label>
+            <label>
+              Краткое описание (на главной странице)
+              <textarea value={item.text} onChange={(e) => update({ text: e.target.value })} />
+            </label>
+            <button type="button" className="btn btn-secondary" onClick={openDetailsModal}>
+              Редактировать подробное описание →
+            </button>
+          </div>
         </div>
-      ))}
+
+        <button type="button" className="admin__carousel-arrow" onClick={() => go(1)} aria-label="Следующая услуга">›</button>
+      </div>
+
       <SaveRow saving={saving} error={error} savedMessage={savedMessage} onSave={() => save(items)} />
+
+      {modalOpen && (
+        <div className="admin__modal-overlay" onClick={() => setModalOpen(false)}>
+          <div className="admin__modal" onClick={(e) => e.stopPropagation()}>
+            <h2>Подробное описание — {item.title}</h2>
+            <p className="admin__hint">Разделяйте абзацы пустой строкой — так они будут выводиться на странице услуги.</p>
+            <textarea
+              className="admin__modal-textarea"
+              value={draftDetails}
+              onChange={(e) => setDraftDetails(e.target.value)}
+            />
+            <div className="admin__modal-actions">
+              <button type="button" className="btn btn-secondary" onClick={() => setModalOpen(false)}>Отмена</button>
+              <button type="button" className="btn btn-primary" onClick={saveDetailsModal}>Готово</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

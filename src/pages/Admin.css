@@ -168,6 +168,88 @@
   font-weight: 600;
 }
 
+.admin__carousel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin__carousel-arrow {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin__carousel-arrow:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.admin__carousel-page {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin__carousel-counter {
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-muted);
+  margin-bottom: 12px;
+}
+
+.admin__card--full {
+  padding: 32px;
+}
+
+.admin__modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(46, 58, 70, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+}
+
+.admin__modal {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-soft);
+}
+
+.admin__modal h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.admin__modal-textarea {
+  min-height: 320px;
+  margin-top: 8px;
+}
+
+.admin__modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
 .admin__password-form {
   max-width: 360px;
   display: flex;
@@ -178,5 +260,11 @@
 @media (max-width: 640px) {
   .admin__card-row {
     grid-template-columns: 1fr;
+  }
+
+  .admin__carousel-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
 }

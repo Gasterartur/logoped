@@ -1,56 +1,10 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo';
 import Reveal from '../components/Reveal';
+import pricelistData from '../content/pricelist.json';
 import './PricingPage.css';
 
-const CATEGORIES = [
-  {
-    title: 'Логопедическая помощь',
-    items: [
-      { name: 'Логопед (дети)', price: '2 000 — 2 500 ₽' },
-      { name: 'Логопед для взрослых', price: '2 000 ₽' },
-      { name: 'Логопед-дефектолог', price: '2 500 ₽' },
-      { name: 'Постановка звуков', price: 'договорная' },
-      { name: 'Развитие речи', price: 'договорная' },
-      { name: 'Логопедический массаж', price: '3 000 ₽' },
-      { name: 'Техника речи / актёрское мастерство', price: 'договорная' },
-    ],
-  },
-  {
-    title: 'Речевые нарушения и диагнозы',
-    items: [
-      { name: 'ОНР', price: '2 000 ₽' },
-      { name: 'ФФНР', price: 'договорная' },
-      { name: 'Алалия', price: '2 000 ₽' },
-      { name: 'Дислалия', price: '2 670 ₽' },
-      { name: 'Дизартрия', price: '2 000 ₽' },
-      { name: 'Заикание', price: '2 000 ₽' },
-      { name: 'Афазия', price: '2 000 ₽' },
-      { name: 'Дислексия', price: '2 000 ₽' },
-      { name: 'Ринолалия', price: '1 600 ₽' },
-    ],
-  },
-  {
-    title: 'Особые потребности и коррекционная педагогика',
-    items: [
-      { name: 'Коррекционная педагогика', price: '2 000 ₽' },
-      { name: 'Аутизм', price: '2 500 ₽' },
-      { name: 'ABA-терапия', price: '2 500 ₽' },
-      { name: 'Миофункциональная коррекция', price: '2 500 ₽' },
-      { name: 'Фонопедия', price: '2 000 ₽' },
-    ],
-  },
-  {
-    title: 'Развивающие занятия',
-    items: [
-      { name: 'Развитие фонематического слуха', price: 'договорная' },
-      { name: 'Развитие речевого дыхания', price: 'договорная' },
-      { name: 'Пальчиковая гимнастика', price: 'договорная' },
-      { name: 'Логоритмика', price: 'договорная' },
-      { name: 'Подготовка к поступлению в 1 класс', price: 'договорная' },
-    ],
-  },
-];
+const CATEGORIES = pricelistData.items;
 
 function PricingPage() {
   return (

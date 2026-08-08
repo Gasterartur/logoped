@@ -5,6 +5,7 @@ const COLLECTION_LABELS = {
   prices: 'Цены',
   services: 'Услуги',
   reviews: 'Отзывы',
+  pricelist: 'Полный прайс-лист',
 };
 
 function useCollection(endpoint) {
@@ -277,6 +278,97 @@ function ReviewsEditor() {
   );
 }
 
+const EMPTY_CATEGORY_ITEM = { name: '', price: '' };
+
+function PriceListEditor() {
+  const { items, setItems, loading, saving, error, savedMessage, save } = useCollection('pricelist');
+
+  if (loading) return <p>Загрузка…</p>;
+  if (!items) return <p className="admin__error">{error}</p>;
+
+  const updateCategory = (catIndex, patch) =>
+    setItems(items.map((cat, i) => (i === catIndex ? { ...cat, ...patch } : cat)));
+  const removeCategory = (catIndex) => setItems(items.filter((_, i) => i !== catIndex));
+  const addCategory = () => setItems([...items, { title: '', items: [] }]);
+  const moveCategory = (catIndex, dir) => {
+    const target = catIndex + dir;
+    if (target < 0 || target >= items.length) return;
+    const next = [...items];
+    [next[catIndex], next[target]] = [next[target], next[catIndex]];
+    setItems(next);
+  };
+
+  const updateRow = (catIndex, rowIndex, patch) => {
+    const category = items[catIndex];
+    const nextRows = category.items.map((row, i) => (i === rowIndex ? { ...row, ...patch } : row));
+    updateCategory(catIndex, { items: nextRows });
+  };
+  const removeRow = (catIndex, rowIndex) => {
+    const category = items[catIndex];
+    updateCategory(catIndex, { items: category.items.filter((_, i) => i !== rowIndex) });
+  };
+  const addRow = (catIndex) => {
+    const category = items[catIndex];
+    updateCategory(catIndex, { items: [...category.items, { ...EMPTY_CATEGORY_ITEM }] });
+  };
+  const moveRow = (catIndex, rowIndex, dir) => {
+    const category = items[catIndex];
+    const target = rowIndex + dir;
+    if (target < 0 || target >= category.items.length) return;
+    const nextRows = [...category.items];
+    [nextRows[rowIndex], nextRows[target]] = [nextRows[target], nextRows[rowIndex]];
+    updateCategory(catIndex, { items: nextRows });
+  };
+
+  return (
+    <div className="admin__collection">
+      {items.map((category, catIndex) => (
+        <div key={catIndex} className="admin__card">
+          <div className="admin__card-row">
+            <label>
+              Название категории
+              <input
+                value={category.title}
+                onChange={(e) => updateCategory(catIndex, { title: e.target.value })}
+              />
+            </label>
+            <div className="admin__card-actions admin__card-actions--inline">
+              <button type="button" onClick={() => moveCategory(catIndex, -1)} disabled={catIndex === 0}>↑</button>
+              <button type="button" onClick={() => moveCategory(catIndex, 1)} disabled={catIndex === items.length - 1}>↓</button>
+              <button type="button" className="admin__remove" onClick={() => removeCategory(catIndex)}>Удалить категорию</button>
+            </div>
+          </div>
+
+          <div className="admin__price-rows">
+            {category.items.map((row, rowIndex) => (
+              <div key={rowIndex} className="admin__price-row">
+                <input
+                  placeholder="Название услуги"
+                  value={row.name}
+                  onChange={(e) => updateRow(catIndex, rowIndex, { name: e.target.value })}
+                />
+                <input
+                  placeholder="Цена"
+                  value={row.price}
+                  onChange={(e) => updateRow(catIndex, rowIndex, { price: e.target.value })}
+                />
+                <div className="admin__card-actions">
+                  <button type="button" onClick={() => moveRow(catIndex, rowIndex, -1)} disabled={rowIndex === 0}>↑</button>
+                  <button type="button" onClick={() => moveRow(catIndex, rowIndex, 1)} disabled={rowIndex === category.items.length - 1}>↓</button>
+                  <button type="button" className="admin__remove" onClick={() => removeRow(catIndex, rowIndex)}>Удалить</button>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button type="button" className="btn btn-secondary" onClick={() => addRow(catIndex)}>+ Добавить услугу</button>
+        </div>
+      ))}
+      <button type="button" className="btn btn-secondary" onClick={addCategory}>+ Добавить категорию</button>
+      <SaveRow saving={saving} error={error} savedMessage={savedMessage} onSave={() => save(items)} />
+    </div>
+  );
+}
+
 function PasswordForm() {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -429,6 +521,7 @@ function Dashboard({ onLogout }) {
         {tab === 'prices' && <PricesEditor />}
         {tab === 'services' && <ServicesEditor />}
         {tab === 'reviews' && <ReviewsEditor />}
+        {tab === 'pricelist' && <PriceListEditor />}
         {tab === 'password' && <PasswordForm />}
       </div>
     </div>

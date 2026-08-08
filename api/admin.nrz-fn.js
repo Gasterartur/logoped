@@ -9,6 +9,7 @@ const FILES = {
   prices: "src/content/prices.json",
   services: "src/content/services.json",
   reviews: "src/content/reviews.json",
+  pricelist: "src/content/pricelist.json",
 };
 
 function parseCookies(header) {

@@ -151,6 +151,36 @@
   color: #c0392b !important;
 }
 
+.admin__card-actions--inline {
+  flex-shrink: 0;
+  align-items: flex-end;
+  padding-bottom: 2px;
+}
+
+.admin__price-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.admin__price-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.admin__price-row input {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .admin__price-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .admin__save-row {
   display: flex;
   align-items: center;

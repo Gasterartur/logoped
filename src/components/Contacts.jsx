@@ -64,7 +64,7 @@ function Contacts() {
                 href="https://vk.ru/im?sel=-65485890"
                 target="_blank"
                 rel="noreferrer"
-                className="btn btn-primary btn-block"
+                className="btn btn-secondary btn-block"
               >
                 💬 Написать в VK
               </a>

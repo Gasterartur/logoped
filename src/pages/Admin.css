@@ -218,7 +218,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 12px;
   z-index: 100;
 }
 
@@ -226,24 +226,33 @@
   background: var(--color-white);
   border-radius: var(--radius-lg);
   padding: 32px;
-  max-width: 640px;
   width: 100%;
-  max-height: 85vh;
-  overflow-y: auto;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
   box-shadow: var(--shadow-soft);
 }
 
 .admin__modal h2 {
   font-size: 20px;
   margin-bottom: 8px;
+  flex: 0 0 auto;
+}
+
+.admin__modal .admin__hint {
+  flex: 0 0 auto;
 }
 
 .admin__modal-textarea {
-  min-height: 320px;
+  flex: 1 1 auto;
+  min-height: 0;
   margin-top: 8px;
 }
 
 .admin__modal-actions {
+  flex: 0 0 auto;
   display: flex;
   justify-content: flex-end;
   gap: 12px;

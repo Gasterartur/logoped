@@ -32,6 +32,22 @@ collections:
               - { label: "Бейдж (необязательно)", name: "badge", widget: "string", required: false }
               - { label: "Выделить карточку зелёной рамкой", name: "highlighted", widget: "boolean", default: false }
 
+  - name: "services"
+    label: "Услуги (карточки на главной)"
+    files:
+      - name: "services"
+        label: "Описания услуг"
+        file: "src/content/services.json"
+        fields:
+          - label: "Услуги"
+            name: "items"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { name: "id", widget: "hidden" }
+              - { label: "Название карточки", name: "title", widget: "string" }
+              - { label: "Описание", name: "text", widget: "text" }
+
   - name: "reviews"
     label: "Отзывы"
     files:

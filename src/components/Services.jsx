@@ -6,46 +6,24 @@ import afaziologImage from '../assets/images/afaziolog.png';
 import logopedVzroslihImage from '../assets/images/logopedVzroslih.png';
 import zaikologImage from '../assets/images/zaikolog.png';
 import abaImage from '../assets/images/ABA.png';
+import servicesData from '../content/services.json';
 import './Services.css';
 
-const SERVICES = [
-  {
-    image: diagnostikaImage,
-    title: 'Диагностика и развитие речи ЗРР',
-    text: 'Полное обследование речи, выявление причин задержки развития и разработка плана коррекции — от диагностики до запуска речи.',
-    link: '/diagnostika-rechi',
-  },
-  {
-    image: postanovkaZvukaImage,
-    title: 'Постановка звуков',
-    text: 'Коррекция звукопроизношения: постановка, автоматизация и введение звуков в самостоятельную речь.',
-    link: '/postanovka-zvukov',
-  },
-  {
-    image: afaziologImage,
-    title: 'Афазиолог. Восстановление речи при афазии',
-    text: 'Работа со взрослыми после инсульта, травмы или операции: восстановление понимания и произношения речи.',
-    link: '/afaziolog',
-  },
-  {
-    image: logopedVzroslihImage,
-    title: 'Логопед для взрослых',
-    text: 'Техника речи, устранение акцента, коррекция дикции и звукопроизношения — индивидуально для взрослых.',
-    link: '/logoped-dlya-vzroslyh',
-  },
-  {
-    image: zaikologImage,
-    title: 'Коррекция заикания. Заиколог',
-    text: 'Комплексная работа над плавностью и темпом речи, снятие речевых судорог и тревожности.',
-    link: '/zaikolog',
-  },
-  {
-    image: abaImage,
-    title: 'ABA-терапия для запуска речи при аутизме и алалии',
-    text: 'Развитие коммуникации, поведения и мотивации к речи у неговорящих детей.',
-    link: '/aba-terapiya',
-  },
+// Image and link stay in code (tied to bundled assets and routes); only the
+// title/text are editable content, matched to this list by id.
+const SERVICE_LINKS = [
+  { id: 'diagnostika-rechi', image: diagnostikaImage, link: '/diagnostika-rechi' },
+  { id: 'postanovka-zvukov', image: postanovkaZvukaImage, link: '/postanovka-zvukov' },
+  { id: 'afaziolog', image: afaziologImage, link: '/afaziolog' },
+  { id: 'logoped-dlya-vzroslyh', image: logopedVzroslihImage, link: '/logoped-dlya-vzroslyh' },
+  { id: 'zaikolog', image: zaikologImage, link: '/zaikolog' },
+  { id: 'aba-terapiya', image: abaImage, link: '/aba-terapiya' },
 ];
+
+const SERVICES = SERVICE_LINKS.map((link) => ({
+  ...link,
+  ...servicesData.items.find((item) => item.id === link.id),
+}));
 
 // Cards sit in a 3-column x 2-row grid: side columns fly in from their
 // nearest edge, the middle column falls back to top (row 1) / bottom (row 2).

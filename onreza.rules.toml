@@ -8,12 +8,12 @@ action.rewrite = { target = "/admin/index.html" }
 [[rule]]
 id = "cms-auth"
 when.path = { exact = "/api/auth" }
-action.pipeline = { steps = [ { handle = "cms-auth" } ] }
+action.pipeline = { steps = [ { handle = "cms-auth", override = true } ] }
 
 [[rule]]
 id = "cms-callback"
 when.path = { exact = "/api/callback" }
-action.pipeline = { steps = [ { handle = "cms-callback" } ] }
+action.pipeline = { steps = [ { handle = "cms-callback", override = true } ] }
 
 [[rule]]
 id = "spa-fallback"

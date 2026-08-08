@@ -1,0 +1,177 @@
+.admin {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+  min-height: 60vh;
+}
+
+.admin--loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin--login {
+  max-width: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.admin__login-form {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--color-white);
+  padding: 40px 32px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.admin__login-form h1 {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.admin input[type="text"],
+.admin input[type="password"],
+.admin input[type="number"],
+.admin textarea {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid rgba(46, 58, 70, 0.15);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+.admin label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.admin textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.admin__hint {
+  color: var(--color-muted);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.admin__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.admin__tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.admin__tab {
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--color-white);
+  border: 2px solid transparent;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+.admin__tab--active {
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+}
+
+.admin__card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin__card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.admin__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.admin__checkbox input {
+  width: auto;
+  margin: 0;
+}
+
+.admin__card-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.admin__card-actions button {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-alt);
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+.admin__remove {
+  background: rgba(220, 60, 60, 0.1) !important;
+  color: #c0392b !important;
+}
+
+.admin__save-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.admin__saved {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+.admin__error {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.admin__password-form {
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .admin__card-row {
+    grid-template-columns: 1fr;
+  }
+}

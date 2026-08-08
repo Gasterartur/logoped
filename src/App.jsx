@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -12,12 +12,16 @@ import ABATerapiya from './pages/ABATerapiya';
 import LogopedVzroslyh from './pages/LogopedVzroslyh';
 import Zaikolog from './pages/Zaikolog';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Admin from './pages/Admin';
 
 function App() {
+  const { pathname } = useLocation();
+  const isAdmin = pathname.startsWith('/admin');
+
   return (
     <>
       <ScrollToTop />
-      <Header />
+      {!isAdmin && <Header />}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -30,9 +34,10 @@ function App() {
           <Route path="/zaikolog" element={<Zaikolog />} />
           <Route path="/aba-terapiya" element={<ABATerapiya />} />
           <Route path="/politika-konfidencialnosti" element={<PrivacyPolicy />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
-      <Footer />
+      {!isAdmin && <Footer />}
     </>
   );
 }

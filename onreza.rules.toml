@@ -1,19 +1,9 @@
 schema = "EDGE_RULE_SET_V1"
 
 [[rule]]
-id = "admin-index"
-when.path = { exact = "/admin" }
-action.rewrite = { target = "/admin/index.html" }
-
-[[rule]]
-id = "cms-auth"
-when.path = { exact = "/api/auth" }
-action.pipeline = { override = true, steps = [ { handle = "cms-auth" } ] }
-
-[[rule]]
-id = "cms-callback"
-when.path = { exact = "/api/callback" }
-action.pipeline = { override = true, steps = [ { handle = "cms-callback" } ] }
+id = "admin-api"
+when.path = { prefix = "/api/admin" }
+action.pipeline = { override = true, steps = [ { handle = "admin-api" } ] }
 
 [[rule]]
 id = "spa-fallback"

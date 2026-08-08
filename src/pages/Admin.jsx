@@ -88,7 +88,7 @@ function PricesEditor() {
     <div className="admin__collection">
       {items.map((item, index) => (
         <div key={index} className="admin__card">
-          <div className="admin__card-row">
+          <div className="admin__card-row admin__card-row--title">
             <label>
               Название
               <input value={item.title} onChange={(e) => update(index, { title: e.target.value })} />

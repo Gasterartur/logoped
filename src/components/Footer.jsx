@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { href: '/#contacts', label: 'Контакты' },
   { href: '/uslugi-i-ceny', label: 'Полный прайс-лист' },
   { href: '/video', label: 'Видео' },
+  { href: '/politika-cookie', label: 'Использование cookie' },
 ];
 
 const SOCIALS = [

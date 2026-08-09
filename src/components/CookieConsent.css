@@ -24,6 +24,12 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
+.cookie-consent p a {
+  color: var(--color-white);
+  text-decoration: underline;
+  font-weight: 700;
+}
+
 .cookie-consent .btn {
   flex-shrink: 0;
 }

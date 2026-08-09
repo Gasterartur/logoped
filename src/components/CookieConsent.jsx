@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './CookieConsent.css';
 
 const STORAGE_KEY = 'cookie-consent';
@@ -26,7 +27,11 @@ function CookieConsent() {
         сайтом. Файлы cookie — это небольшие текстовые файлы, которые сохраняются в вашем браузере.
         Вы можете изменить настройки браузера или покинуть сайт, если не согласны с их
         использованием. Продолжая пользоваться сайтом, вы даёте согласие на использование файлов
-        cookie.
+        cookie. Подробнее — в{' '}
+        <Link to="/politika-cookie" onClick={() => setVisible(false)}>
+          политике использования cookie
+        </Link>
+        .
       </p>
       <button type="button" className="btn btn-primary" onClick={accept}>Хорошо</button>
     </div>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getEmbedUrl } from '../utils/videoEmbed';
 import './Admin.css';
 
 const COLLECTION_LABELS = {
@@ -6,6 +7,7 @@ const COLLECTION_LABELS = {
   services: 'Услуги',
   reviews: 'Отзывы',
   pricelist: 'Полный прайс-лист',
+  videos: 'Видео',
 };
 
 function useCollection(endpoint) {
@@ -369,6 +371,66 @@ function PriceListEditor() {
   );
 }
 
+const EMPTY_VIDEO = { title: '', url: '' };
+
+function VideosEditor() {
+  const { items, setItems, loading, saving, error, savedMessage, save } = useCollection('videos');
+
+  if (loading) return <p>Загрузка…</p>;
+  if (!items) return <p className="admin__error">{error}</p>;
+
+  const update = (index, patch) => setItems(items.map((item, i) => (i === index ? { ...item, ...patch } : item)));
+  const remove = (index) => setItems(items.filter((_, i) => i !== index));
+  const add = () => setItems([...items, { ...EMPTY_VIDEO }]);
+  const move = (index, dir) => {
+    const target = index + dir;
+    if (target < 0 || target >= items.length) return;
+    const next = [...items];
+    [next[index], next[target]] = [next[target], next[index]];
+    setItems(next);
+  };
+
+  return (
+    <div className="admin__collection">
+      <p className="admin__hint">
+        Вставьте ссылку на видео с YouTube, VK Видео или RuTube — плеер встроится на сайте автоматически.
+        Ссылки с других сервисов покажутся как обычная кнопка «Смотреть видео».
+      </p>
+      {items.map((item, index) => {
+        const embed = getEmbedUrl(item.url);
+        return (
+          <div key={index} className="admin__card">
+            <label>
+              Название (необязательно)
+              <input value={item.title} onChange={(e) => update(index, { title: e.target.value })} />
+            </label>
+            <label>
+              Ссылка на видео
+              <input
+                value={item.url}
+                onChange={(e) => update(index, { url: e.target.value })}
+                placeholder="https://..."
+              />
+            </label>
+            {item.url && (
+              embed
+                ? <p className="admin__saved">Распознано: {embed.provider} — будет встроенный плеер</p>
+                : <p className="admin__error">Ссылка не распознана — будет показана как обычная кнопка</p>
+            )}
+            <div className="admin__card-actions">
+              <button type="button" onClick={() => move(index, -1)} disabled={index === 0}>↑</button>
+              <button type="button" onClick={() => move(index, 1)} disabled={index === items.length - 1}>↓</button>
+              <button type="button" className="admin__remove" onClick={() => remove(index)}>Удалить</button>
+            </div>
+          </div>
+        );
+      })}
+      <button type="button" className="btn btn-secondary" onClick={add}>+ Добавить видео</button>
+      <SaveRow saving={saving} error={error} savedMessage={savedMessage} onSave={() => save(items)} />
+    </div>
+  );
+}
+
 function PasswordForm() {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -522,6 +584,7 @@ function Dashboard({ onLogout }) {
         {tab === 'services' && <ServicesEditor />}
         {tab === 'reviews' && <ReviewsEditor />}
         {tab === 'pricelist' && <PriceListEditor />}
+        {tab === 'videos' && <VideosEditor />}
         {tab === 'password' && <PasswordForm />}
       </div>
     </div>

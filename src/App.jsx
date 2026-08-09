@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import PricingPage from './pages/PricingPage';
 import ServiceDetail from './pages/ServiceDetail';
 import Credentials from './pages/Credentials';
+import VideoGallery from './pages/VideoGallery';
 import Admin from './pages/Admin';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/logoped-dlya-vzroslyh" element={<ServiceDetail id="logoped-dlya-vzroslyh" />} />
           <Route path="/zaikolog" element={<ServiceDetail id="zaikolog" />} />
           <Route path="/aba-terapiya" element={<ServiceDetail id="aba-terapiya" />} />
+          <Route path="/video" element={<VideoGallery />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>

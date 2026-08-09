@@ -10,6 +10,7 @@ const FILES = {
   services: "src/content/services.json",
   reviews: "src/content/reviews.json",
   pricelist: "src/content/pricelist.json",
+  videos: "src/content/videos.json",
 };
 
 function parseCookies(header) {

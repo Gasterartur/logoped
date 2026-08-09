@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import CookieConsent from './components/CookieConsent';
 import Home from './pages/Home';
 import PricingPage from './pages/PricingPage';
 import ServiceDetail from './pages/ServiceDetail';
@@ -33,6 +34,7 @@ function App() {
         </Routes>
       </main>
       {!isAdmin && <Footer />}
+      {!isAdmin && <CookieConsent />}
     </>
   );
 }

@@ -28,7 +28,7 @@ function ServiceDetail({ id }) {
           </Reveal>
 
           {paragraphs.length > 0 && (
-            <Reveal className="service-detail__block" delay={100}>
+            <Reveal className="service-detail__block" delay={100} animate={false}>
               {paragraphs.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}

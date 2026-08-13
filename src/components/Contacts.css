@@ -89,6 +89,14 @@
     grid-template-columns: 1fr;
   }
 
+  .contacts__cta-block {
+    order: 1;
+  }
+
+  .contacts__info {
+    order: 2;
+  }
+
   .contacts__form {
     padding: 24px;
   }
